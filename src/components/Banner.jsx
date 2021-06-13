@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 const Img = styled.img`
-  width: max(100%, 500px);
+  width: 100%;
   object-fit: cover;
   height: 100px;
 `;
