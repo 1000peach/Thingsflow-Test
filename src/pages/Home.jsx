@@ -18,6 +18,9 @@ function Home() {
   return (
     <Container>
       <ul>
+        <a href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
+          <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
+        </a>
         {data.map((issue) => (
           <List
             key={issue.id}
@@ -37,6 +40,12 @@ function Home() {
 
 const Container = styled.div`
   margin-top: 50px;
+`;
+
+const AdImg = styled.img`
+  width: max(100%, 500px);
+  object-fit: cover;
+  height: 100px;
 `;
 
 export default Home;
