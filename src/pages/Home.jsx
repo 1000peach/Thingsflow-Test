@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import List from "../components/List";
-import { getIssueList } from "../redux/reducer/issueReducer";
+import useIssue from "../hooks/useIssue";
 
 function Home() {
-  const dispatch = useDispatch();
+  const { issues, getIssueListAction } = useIssue();
 
   useEffect(() => {
-    dispatch(getIssueList());
-  }, [dispatch]);
+    getIssueListAction();
+  }, []);
 
   return (
     <Container>
