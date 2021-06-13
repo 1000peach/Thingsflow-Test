@@ -5,7 +5,7 @@ function List({ issueInfo }) {
   const { number, title, user, date, comments } = issueInfo;
 
   return (
-    <Wrapper>
+    <Wrapper className="list">
       <Text>
         <h2>{`#${number} ${title}`}</h2>
         <p>{`작성자: ${user}, 작성일: ${date}`}</p>
@@ -16,6 +16,7 @@ function List({ issueInfo }) {
 }
 
 const Wrapper = styled.div`
+  width: 100%;
   padding: 20px 0;
   display: flex;
   border-bottom: 1px solid black;
