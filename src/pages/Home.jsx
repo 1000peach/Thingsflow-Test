@@ -1,22 +1,16 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import IssueAPI from "../api/issueAPI";
-
 import List from "../components/List";
+import { getIssueList } from "../redux/reducer/issueReducer";
 
 function Home() {
-  const getIssueList = async () => {
-    const data = await IssueAPI.getIssueList({
-      owner: "angular",
-      repo: "angular-cli"
-    });
-    console.log(data);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getIssueList();
-  }, []);
+    dispatch(getIssueList());
+  }, [dispatch]);
 
   return (
     <Container>
