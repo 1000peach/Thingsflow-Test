@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 function Header() {
-  return <Wrapper>Angular / Angular-cli</Wrapper>;
+  return (
+    <Wrapper>
+      <h1>Angular / Angular-cli</h1>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.header`
