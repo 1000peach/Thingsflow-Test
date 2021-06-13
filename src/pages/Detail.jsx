@@ -1,15 +1,19 @@
 import React from "react";
-import qs from "query-string";
-
-import useIssue from "../hooks/useIssue";
 import styled from "styled-components";
-import List from "../components/List";
-
+import qs from "query-string";
 import ReactMarkdown from "react-markdown";
+
+import Loading from "../components/Loading";
+import List from "../components/List";
+import useIssue from "../hooks/useIssue";
+
+import { INIT, LOADING } from "../redux/reducer/issueReducer";
 
 function Detail({ location: { search } }) {
   const { issues } = useIssue();
   const { data, status } = issues;
+
+  if (search.length < 1) return <h1>잘못된 접근입니다.</h1>;
 
   const { idx } = qs.parse(search);
   const issue = data[idx];
@@ -17,6 +21,8 @@ function Detail({ location: { search } }) {
   window.scrollTo({
     top: 0
   });
+
+  if (status === LOADING || status === INIT) return <Loading />;
 
   return (
     <div>

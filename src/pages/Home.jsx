@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import List from "../components/List";
+import Loading from "../components/Loading";
+
 import useIssue from "../hooks/useIssue";
-import { INIT, LOADING, SUCCESS } from "../redux/reducer/issueReducer";
+import { INIT, LOADING } from "../redux/reducer/issueReducer";
 
 function Home() {
-  const { issues, getIssueListAction } = useIssue();
+  const { issues } = useIssue();
   const { status, data } = issues;
 
-  useEffect(() => {
-    if (status !== SUCCESS) getIssueListAction();
-  }, []);
-
-  if (status === LOADING || status === INIT) return null;
+  if (status === LOADING || status === INIT) return <Loading />;
 
   return (
     <Container>
