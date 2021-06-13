@@ -5,12 +5,18 @@ import useIssue from "../hooks/useIssue";
 import styled from "styled-components";
 import List from "../components/List";
 
+import ReactMarkdown from "react-markdown";
+
 function Detail({ location: { search } }) {
   const { issues } = useIssue();
   const { data, status } = issues;
 
   const { idx } = qs.parse(search);
   const issue = data[idx];
+
+  window.scrollTo({
+    top: 0
+  });
 
   return (
     <div>
@@ -28,6 +34,7 @@ function Detail({ location: { search } }) {
           }}
         />
       </Info>
+      <ReactMarkdown>{issue.body}</ReactMarkdown>
     </div>
   );
 }
