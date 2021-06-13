@@ -13,3 +13,8 @@ body {
 main {
   height: 100vh;
 }
+
+ul,
+li {
+  all: unset;
+}

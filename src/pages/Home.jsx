@@ -21,17 +21,20 @@ function Home() {
         <a href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
           <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
         </a>
+        <ul></ul>
         {data.map((issue) => (
-          <List
-            key={issue.id}
-            issueInfo={{
-              number: issue.number,
-              title: issue.title,
-              user: issue.user.login,
-              date: issue.created_at,
-              comments: issue.comments
-            }}
-          />
+          <li>
+            <List
+              key={issue.id}
+              issueInfo={{
+                number: issue.number,
+                title: issue.title,
+                user: issue.user.login,
+                date: issue.created_at,
+                comments: issue.comments
+              }}
+            />
+          </li>
         ))}
       </ul>
     </Container>
