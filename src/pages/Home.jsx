@@ -23,9 +23,9 @@ function Home() {
       </a>
 
       <ul>
-        {data.map((issue) => (
+        {data.map((issue, idx) => (
           <li key={issue.id}>
-            <Link to={`/detail?id=${issue.id}`}>
+            <Link to={`/detail?idx=${idx}`}>
               <List
                 issueInfo={{
                   number: issue.number,

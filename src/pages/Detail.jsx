@@ -5,7 +5,9 @@ import useIssue from "../hooks/useIssue";
 
 function Detail({ location: { search } }) {
   const { data, status } = useIssue();
-  const { id } = qs.parse(search);
+  const { idx } = qs.parse(search);
+
+  console.log(idx);
 
   return <div>{/* <List /> */}</div>;
 }
