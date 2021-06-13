@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { getFormattedInfo } from "../utils/handler";
 
 function List({ issueInfo }) {
   const { number, title, user, date, comments } = issueInfo;
@@ -8,7 +9,7 @@ function List({ issueInfo }) {
     <Wrapper className="list">
       <Text>
         <h2>{`#${number} ${title}`}</h2>
-        <p>{`작성자: ${user ? user.login : ""}, 작성일: ${date}`}</p>
+        <p>{`작성자: ${user ? user.login : ""}, 작성일: ${getFormattedInfo(date)}`}</p>
       </Text>
       <Comment>{`코멘트: ${comments}`}</Comment>
     </Wrapper>
