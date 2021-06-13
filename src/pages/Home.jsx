@@ -1,39 +1,41 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import List from "../components/List";
 import useIssue from "../hooks/useIssue";
-import { INIT, LOADING } from "../redux/reducer/issueReducer";
+import { INIT, LOADING, SUCCESS } from "../redux/reducer/issueReducer";
 
 function Home() {
   const { issues, getIssueListAction } = useIssue();
   const { status, data } = issues;
 
   useEffect(() => {
-    getIssueListAction();
+    if (status !== SUCCESS) getIssueListAction();
   }, []);
 
   if (status === LOADING || status === INIT) return null;
 
   return (
     <Container>
+      <a href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
+        <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
+      </a>
+
       <ul>
-        <a href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
-          <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
-        </a>
-        <ul></ul>
         {data.map((issue) => (
-          <li>
-            <List
-              key={issue.id}
-              issueInfo={{
-                number: issue.number,
-                title: issue.title,
-                user: issue.user.login,
-                date: issue.created_at,
-                comments: issue.comments
-              }}
-            />
+          <li key={issue.id}>
+            <Link to={`/detail?id=${issue.id}`}>
+              <List
+                issueInfo={{
+                  number: issue.number,
+                  title: issue.title,
+                  user: issue.user.login,
+                  date: issue.created_at,
+                  comments: issue.comments
+                }}
+              />
+            </Link>
           </li>
         ))}
       </ul>

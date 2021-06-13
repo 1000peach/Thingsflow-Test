@@ -1,7 +1,13 @@
 import React from "react";
+import qs from "query-string";
 
-function Detail() {
-  return <div>이슈 상세 화면</div>;
+import useIssue from "../hooks/useIssue";
+
+function Detail({ location: { search } }) {
+  const { data, status } = useIssue();
+  const { id } = qs.parse(search);
+
+  return <div>{/* <List /> */}</div>;
 }
 
 export default Detail;
