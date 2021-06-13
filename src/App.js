@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 import "./reset.css";
 
@@ -13,6 +14,7 @@ function App() {
       <Main>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/detail" component={Detail} />
         </Switch>
       </Main>
     </BrowserRouter>
