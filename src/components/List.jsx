@@ -23,23 +23,28 @@ const Wrapper = styled.div`
   border-bottom: 1px solid black;
 `;
 
-const Comment = styled.div`
-  width: 100px;
-  display: flex;
-  align-items: center;
-`;
-
 const Text = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
 
   h2 {
+    font-size: 18px;
     margin: 0 0 10px 0;
   }
+
   p {
     all: unset;
+    font-size: 14px;
   }
+`;
+
+const Comment = styled.div`
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 `;
 
 export default List;
