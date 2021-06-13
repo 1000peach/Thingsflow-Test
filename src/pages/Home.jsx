@@ -16,26 +16,31 @@ function Home() {
 
   return (
     <Container>
-      <a href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
-        <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
-      </a>
-
       <ul>
-        {data.map((issue, idx) => (
-          <li key={issue.id}>
-            <Link to={`/detail?idx=${idx}`}>
-              <List
-                issueInfo={{
-                  number: issue.number,
-                  title: issue.title,
-                  user: issue.user.login,
-                  date: issue.created_at,
-                  comments: issue.comments
-                }}
-              />
-            </Link>
-          </li>
-        ))}
+        {data.map((issue, idx) => {
+          if (!issue) {
+            return (
+              <a key="ad" href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
+                <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
+              </a>
+            );
+          }
+          return (
+            <li key={issue.id}>
+              <Link to={`/detail?idx=${idx}`}>
+                <List
+                  issueInfo={{
+                    number: issue.number,
+                    title: issue.title,
+                    user: issue.user,
+                    date: issue.created_at,
+                    comments: issue.comments
+                  }}
+                />
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </Container>
   );

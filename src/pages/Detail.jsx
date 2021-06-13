@@ -16,6 +16,8 @@ function Detail({ location: { search } }) {
   if (search.length < 1) return <h1>잘못된 접근입니다.</h1>;
 
   const { idx } = qs.parse(search);
+  if (Number(idx) === 4) return <h1>잘못된 접근입니다.</h1>;
+
   const issue = data[idx];
 
   window.scrollTo({
@@ -34,7 +36,7 @@ function Detail({ location: { search } }) {
           issueInfo={{
             number: issue.number,
             title: issue.title,
-            user: issue.user.login,
+            user: issue.user,
             date: issue.created_at,
             comments: issue.comments
           }}

@@ -8,7 +8,7 @@ function List({ issueInfo }) {
     <Wrapper className="list">
       <Text>
         <h2>{`#${number} ${title}`}</h2>
-        <p>{`작성자: ${user}, 작성일: ${date}`}</p>
+        <p>{`작성자: ${user ? user.login : ""}, 작성일: ${date}`}</p>
       </Text>
       <Comment>{`코멘트: ${comments}`}</Comment>
     </Wrapper>

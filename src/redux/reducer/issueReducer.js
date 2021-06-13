@@ -31,6 +31,8 @@ const issue = createSlice({
       state.issues.status = LOADING;
     },
     [getIssueList.fulfilled]: (state, action) => {
+      action.payload.splice(4, 0, null);
+
       state.issues.status = SUCCESS;
       state.issues.data = action.payload;
     },
