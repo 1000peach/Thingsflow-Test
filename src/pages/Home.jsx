@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import Banner from "../components/Banner";
 
 import List from "../components/List";
 import Loading from "../components/Loading";
@@ -18,13 +18,8 @@ function Home() {
     <div>
       <ul>
         {data.map((issue, idx) => {
-          if (!issue) {
-            return (
-              <a key="ad" href="https://thingsflow.com/ko/home" target="_blank" rel="noreferrer">
-                <AdImg src="http://placehold.it/500x100?text=ad" alt="img" />
-              </a>
-            );
-          }
+          if (!issue) return <Banner key="ad banner" />;
+
           return (
             <li key={issue.id}>
               <Link to={`/detail?idx=${idx}`}>
@@ -45,11 +40,5 @@ function Home() {
     </div>
   );
 }
-
-const AdImg = styled.img`
-  width: max(100%, 500px);
-  object-fit: cover;
-  height: 100px;
-`;
 
 export default Home;

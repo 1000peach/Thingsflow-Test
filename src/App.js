@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     if (status !== SUCCESS) getIssueListAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
