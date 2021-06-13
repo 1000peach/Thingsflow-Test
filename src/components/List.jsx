@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-function List() {
+function List({ issueInfo }) {
+  const { number, title, user, date, comments } = issueInfo;
+
   return (
     <Wrapper>
       <Text>
-        <h2>#111 issue title</h2>
-        <p>작성자: name, 작성일: 2021년 6월 13일</p>
+        <h2>{`#${number} ${title}`}</h2>
+        <p>{`작성자: ${user}, 작성일: ${date}`}</p>
       </Text>
-      <Comment>코멘트: 67</Comment>
+      <Comment>{`코멘트: ${comments}`}</Comment>
     </Wrapper>
   );
 }

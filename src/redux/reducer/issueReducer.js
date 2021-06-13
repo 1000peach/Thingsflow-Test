@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import IssueAPI from "../../api/issueAPI";
 
-const [INIT, LOADING, SUCCESS, ERROR] = ["init", "loading", "success", "error"];
+export const [INIT, LOADING, SUCCESS, ERROR] = ["init", "loading", "success", "error"];
 
 const prefix = "issue";
 
