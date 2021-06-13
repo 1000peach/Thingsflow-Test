@@ -15,7 +15,7 @@ function Home() {
   if (status === LOADING || status === INIT) return <Loading />;
 
   return (
-    <Container>
+    <div>
       <ul>
         {data.map((issue, idx) => {
           if (!issue) {
@@ -42,13 +42,9 @@ function Home() {
           );
         })}
       </ul>
-    </Container>
+    </div>
   );
 }
-
-const Container = styled.div`
-  margin-top: 50px;
-`;
 
 const AdImg = styled.img`
   width: max(100%, 500px);
